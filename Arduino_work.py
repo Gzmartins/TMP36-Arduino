@@ -9,3 +9,12 @@ void setup() {
   pinMode(buzzer, OUTPUT);
   Serial.begin(9600);
 }
+
+void loop() {
+  int leitura = analogRead(sensorPin);
+  float tensao = leitura * 5.0 / 1023.0;
+  float temperaturaC = (tensao - 0.5) * 100;
+
+  Serial.print("Temperatura: ");
+  Serial.print(temperaturaC);
+  Serial.println(" C");
