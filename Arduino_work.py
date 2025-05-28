@@ -18,3 +18,20 @@ void loop() {
   Serial.print("Temperatura: ");
   Serial.print(temperaturaC);
   Serial.println(" C");
+
+if (temperaturaC < 2) {
+    digitalWrite(ledFrio, HIGH);
+    digitalWrite(ledCalor, LOW);
+    digitalWrite(buzzer, HIGH);
+  } else if (temperaturaC > 8) {
+    digitalWrite(ledFrio, LOW);
+    digitalWrite(ledCalor, HIGH);
+    digitalWrite(buzzer, HIGH);
+  } else {
+    digitalWrite(ledFrio, LOW);
+    digitalWrite(ledCalor, LOW);
+    digitalWrite(buzzer, LOW);
+  }
+
+  delay(1000);
+}
